@@ -12,7 +12,6 @@ RSpec.describe Deck do
     deck = Deck.new(cards)
     expect(deck).to be_a(Deck)
     expect(deck.cards).to be_an(Array)
-
   end
 
   it "attributes" do
