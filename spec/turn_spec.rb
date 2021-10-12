@@ -37,7 +37,6 @@ RSpec.describe Turn do
     expect(turn.feedback).to eq("Correct!")
     card_1 = Card.new("What is the Capitol of California?", "Sacramento", :Geography)
     turn_1 = Turn.new("Fresno", card)
-    require "pry"; binding.pry
     expect(turn_1.feedback).to eq("Incorrect!")
   end
 
