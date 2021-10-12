@@ -10,10 +10,6 @@ class Turn
     @string
   end
 
-  # def card
-  #   @card
-  # end
-
   def correct?
     if @string == @card.answer
       true

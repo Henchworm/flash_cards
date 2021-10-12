@@ -40,8 +40,8 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    expect(new_turn.correct?).to be(true)
-    expect(new_turn.class).to be(Turn)
+    # expect(new_turn.correct?).to be(true)
+
     require "pry"; binding.pry
   end
 
