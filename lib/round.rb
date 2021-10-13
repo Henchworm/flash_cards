@@ -18,7 +18,7 @@ class Round
 
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
-    @turns.rotate
+    @turns.rotate(1)
     require "pry"; binding.pry
   end
 
