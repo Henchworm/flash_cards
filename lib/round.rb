@@ -1,17 +1,15 @@
 class Round
   attr_reader :deck,
-              :number_correct,
-              :number_incorrect,
+              :correct_counter,
+              :incorrect_counter,
               :turns,
               :string,
               :cards
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 0
-    @number_incorrect = 0
-    @string = deck.cards
-    @cards = deck.cards
+    @correct_counter = 0
+    @incorrect_counter = 0
   end
 
   def current_card
@@ -19,14 +17,27 @@ class Round
   end
 
   def take_turn(guess)
-    @turns << Turn.new(string, cards)
-    require "pry"; binding.pry
-    if guess == cards.answer #enumerable
-      @number_correct += 1
-    elsif guess != cards.answer
-      @number_incorrect += 1
+    @turns << Turn.new(guess, current_card)
+    #rotate or shift
+  end
+
+  def number_correct
+    @turns.each do |turn|
+      if turn.card.answer == turn.string
+        @correct_counter += 1
+      end
     end
   end
+
+
+  def number_incorrect
+    @turns.each do |turn|
+      if turn.card.answer != turn.string
+        @incorrect_counter += 1
+      end
+    end
+  end
+
 
 
 end
