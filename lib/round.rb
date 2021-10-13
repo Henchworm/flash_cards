@@ -17,10 +17,9 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
-    @turns << new_turn
+    @turns << Turn.new(guess, current_card)
     @turns.rotate
-    #rotate or shift
+    require "pry"; binding.pry
   end
 
   def number_correct
@@ -39,5 +38,14 @@ class Round
       end
     end
   end
+
+  def number_correct_by_category()
+
+  end
+
+  def percent_correct_by_category()
+
+  end
+
 end
 
