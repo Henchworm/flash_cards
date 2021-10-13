@@ -17,7 +17,9 @@ class Round
   end
 
   def take_turn(guess)
-    @turns << Turn.new(guess, current_card)
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    @turns.rotate
     #rotate or shift
   end
 
@@ -37,8 +39,5 @@ class Round
       end
     end
   end
-
-
-
 end
 
