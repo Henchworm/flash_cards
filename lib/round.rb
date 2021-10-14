@@ -43,6 +43,13 @@ class Round
     require "pry"; binding.pry
   end
 
+  def start_message
+    puts "Welcome! You're playing with #{deck.cards.count} cards.
+  -------------------------------------------------
+  This is card number #{@deck.cards.first} out of #{deck.cards.count}.
+  Question: What is 5 + 5?"
+  #card counter thing? is there a built in method for this?
+  end
 end
 
 
