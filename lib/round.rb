@@ -49,12 +49,31 @@ class Round
     @card_counter += 1
     puts "Welcome! You're playing with #{deck.cards.count} cards."
     puts "-------------------------------------------------"
-      until deck.cards.count == @card_counter -1
-        puts "This is card number #{@card_counter} out of #{deck.cards.count}."
-        puts "Question: #{current_card.question}"
-        self.take_turn(gets.chomp)
-        puts self.turns.last.feedback
-      end
+       until deck.cards.count == @card_counter -1
+         puts "This is card number #{@card_counter} out of #{deck.cards.count}."
+         puts "Question: #{current_card.question}"
+         self.take_turn(gets.chomp)
+         puts self.turns.last.feedback
+       end
+     end_message
+  end
+
+ # RECURSION LOOP IDEA
+  # def play
+  #     if deck.cards.count != @card_counter -1
+  #         puts "This is card number #{@card_counter} out of #{deck.cards.count}."
+  #         puts "Question: #{current_card.question}"
+  #         self.take_turn(gets.chomp)
+  #         puts self.turns.last.feedback
+  #       end
+  #       play
+  #     else
+  #   end_message
+  # end
+
+  def end_message
+    puts "******* GAME OVER!!! *******"
+    puts "You had #{number_correct} guesses out of #{turns.count} for a total score of #{percent_correct}."
   end
 
 
