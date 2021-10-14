@@ -2,10 +2,12 @@ class Round
   attr_reader :deck,
               :turns,
               :string,
-              :cards
+              :cards,
+              :user_guess
   def initialize(deck)
     @deck = deck
     @turns = []
+    @card_counter = 0
   end
 
   def current_card
@@ -13,6 +15,7 @@ class Round
   end
 
   def take_turn(guess)
+    @card_counter += 1
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
     @deck.cards.rotate!
@@ -40,16 +43,21 @@ class Round
       turn.card.category == category
     end
     number_correct_by_category(category) / category_count * 100
-    require "pry"; binding.pry
   end
 
   def start_message
-    puts "Welcome! You're playing with #{deck.cards.count} cards.
-  -------------------------------------------------
-  This is card number #{@deck.cards.first} out of #{deck.cards.count}.
-  Question: What is 5 + 5?"
-  #card counter thing? is there a built in method for this?
+    @card_counter += 1
+    puts "Welcome! You're playing with #{deck.cards.count} cards."
+    puts "-------------------------------------------------"
+      until deck.cards.count == @card_counter -1
+        puts "This is card number #{@card_counter} out of #{deck.cards.count}."
+        puts "Question: #{current_card.question}"
+        self.take_turn(gets.chomp)
+        puts self.turns.last.feedback
+      end
   end
+
+
 end
 
 
