@@ -8,19 +8,22 @@ class CardGenerator
               :cards
   def initialize(filename)
     @filename = filename
-    @cards = []
+
   end
 
-  def card_reader
+  def cards
     cards_data = File.open(filename)
     read_cards_data = cards_data.readlines.map(&:chomp)
-    new_card = []
+    new_cards = []
     read_cards_data.each do |line|
-      card_array = line.split(/, /)
-      question = card_array[0]
-      answer = card_array[1]
-      category = card_array[2]
-    end
-    @cards << Card.new(question, answer, category)
+        card_array = line.split(/, /)
+        question = card_array[0]
+        answer = card_array[1]
+        category = card_array[2]
+        new_cards << Card.new(question, answer, category)
+      end
+      new_cards
   end
+
+
 end
