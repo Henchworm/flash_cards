@@ -17,7 +17,6 @@ class Round
     @turns << new_turn
     @deck.cards.rotate!
     new_turn
-    require "pry"; binding.pry
   end
 
   def number_correct
@@ -26,11 +25,17 @@ class Round
     end
   end
 
+  def number_correct_by_category(category)
+      turns.count do |turn|
+        turn.correct? && category == turn.card.category
+      end
+    end
 
-
-  def percent_correct_by_category(category)
-
+  def percent_correct
+    (number_correct / turns.count.to_f) * 100
   end
 
 end
+
+
 
