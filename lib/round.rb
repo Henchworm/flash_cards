@@ -74,8 +74,7 @@ class Round
   def end_message
     puts "******* GAME OVER!!! *******"
     puts "You had #{number_correct} guesses out of #{turns.count} for a total score of #{percent_correct.to_i} %."
-    puts "#{self.deck.cards.category}"
-    end
+  end
 
 
 end
