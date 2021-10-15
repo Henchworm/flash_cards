@@ -52,7 +52,7 @@ class Round
        until deck.cards.count == @card_counter -1
          puts "This is card number #{@card_counter} out of #{deck.cards.count}."
          puts "Question: #{current_card.question}"
-         self.take_turn(gets.chomp)
+         self.take_turn(gets.chomp.strip)
          puts self.turns.last.feedback
        end
      end_message
