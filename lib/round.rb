@@ -56,18 +56,6 @@ class Round
      end_message
   end
 
- # RECURSION LOOP IDEA
-  # def play
-  #     if deck.cards.count != @card_counter -1
-  #         puts "This is card number #{@card_counter} out of #{deck.cards.count}."
-  #         puts "Question: #{current_card.question}"
-  #         self.take_turn(gets.chomp)
-  #         puts self.turns.last.feedback
-  #       end
-  #       play
-  #     else
-  #   end_message
-  # end
   def category_message
     self.deck.cards.each do |card|
       category = card.category
@@ -81,8 +69,6 @@ class Round
     category_message
     #to do: find all enumerable for category(.to_s), for each category puts {catregory} + percent correct + explainiong text
   end
-
-
 end
 
 
