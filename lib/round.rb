@@ -1,7 +1,8 @@
 class Round
   attr_reader :deck,
               :turns,
-              :cards
+              :cards,
+              :categories
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -57,10 +58,13 @@ class Round
   end
 
   def category_message
+    categories = []
     self.deck.cards.each do |card|
-      category = card.category
-      puts "#{category.to_s[1..-1].gsub('_', " ")} -- #{percent_correct_by_category(category).round}% correct"
+      categories << card.category
     end
+      categories.uniq.each do |category|
+        puts "#{category.to_s[1..-1].gsub('_', " ")} -- #{percent_correct_by_category(category).round}% correct"
+      end
   end
 
   def end_message
