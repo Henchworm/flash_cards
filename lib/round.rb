@@ -27,10 +27,10 @@ class Round
   end
 
   def number_correct_by_category(category)
-      turns.count do |turn|
-        turn.correct? && category == turn.card.category
-      end
+    turns.count do |turn|
+      turn.correct? && category == turn.card.category
     end
+  end
 
   def percent_correct
     (number_correct / turns.count.to_f) * 100
@@ -40,7 +40,7 @@ class Round
     category_count = turns.count do |turn|
       turn.card.category == category
     end
-    number_correct_by_category(category) / category_count * 100
+    number_correct_by_category(category) / category_count.to_f * 100
   end
 
   def start_message
@@ -59,7 +59,7 @@ class Round
   def category_message
     self.deck.cards.each do |card|
       category = card.category
-      puts "#{category} -- #{percent_correct_by_category(category)}% correct"
+      puts "#{category} -- #{percent_correct_by_category(category).round}% correct"
     end
   end
 
@@ -67,7 +67,6 @@ class Round
     puts "******* GAME OVER!!! *******"
     puts "You had #{number_correct} guesses out of #{turns.count} for a total score of #{percent_correct.to_i} %."
     category_message
-    #to do: find all enumerable for category(.to_s), for each category puts {catregory} + percent correct + explainiong text
   end
 end
 
