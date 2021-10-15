@@ -68,10 +68,17 @@ class Round
   #     else
   #   end_message
   # end
+  def category_message
+    self.deck.cards.each do |card|
+      category = card.category
+      puts "#{category} -- #{percent_correct_by_category(category)}% correct"
+    end
+  end
 
   def end_message
     puts "******* GAME OVER!!! *******"
     puts "You had #{number_correct} guesses out of #{turns.count} for a total score of #{percent_correct.to_i} %."
+    category_message
     #to do: find all enumerable for category(.to_s), for each category puts {catregory} + percent correct + explainiong text
   end
 
