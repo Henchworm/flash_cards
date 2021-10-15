@@ -59,7 +59,7 @@ class Round
   def category_message
     self.deck.cards.each do |card|
       category = card.category
-      puts "#{category} -- #{percent_correct_by_category(category).round}% correct"
+      puts "#{category.to_s[1..-1].gsub('_', " ")} -- #{percent_correct_by_category(category).round}% correct"
     end
   end
 
