@@ -1,9 +1,7 @@
 class Round
   attr_reader :deck,
               :turns,
-              :string,
-              :cards,
-              :user_guess
+              :cards
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -74,6 +72,7 @@ class Round
   def end_message
     puts "******* GAME OVER!!! *******"
     puts "You had #{number_correct} guesses out of #{turns.count} for a total score of #{percent_correct.to_i} %."
+    #to do: find all enumerable for category(.to_s), for each category puts {catregory} + percent correct + explainiong text
   end
 
 
