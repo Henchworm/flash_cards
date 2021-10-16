@@ -8,7 +8,6 @@ class CardGenerator
               :cards
   def initialize(filename)
     @filename = filename
-
   end
 
   def cards
@@ -24,6 +23,4 @@ class CardGenerator
       end
       new_cards
   end
-
-
 end

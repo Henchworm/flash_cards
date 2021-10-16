@@ -2,3 +2,6 @@ Which jazz musician has the nickname "Bags?", Milt Jackson, :Pop_Culture
 Which spacecraft is carrying a golden record?, Voyager, :STEM
 What language was Ruby written in?, C, :STEM
 Who invented antibiotics?, Fleming, :STEM
+What is John Lennon's bday?, 10/9, :Pop_Culture
+What is my favorite book?, 100 Years of Solitude, :Chris
+Who invented the tractor seed drill?, Jethro Tull, :STEM

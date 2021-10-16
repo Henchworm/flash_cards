@@ -41,7 +41,7 @@ class Round
     category_count = turns.count do |turn|
       turn.card.category == category
     end
-    number_correct_by_category(category) / category_count.to_f * 100
+    number_correct_by_category(category)/ category_count.to_f * 100
   end
 
   def start_message
